@@ -1,17 +1,40 @@
-namespace SalesAndInventorySystem
+using System;
+using System.Windows.Forms;
+
+static class Program
 {
-    internal static class Program
+    [STAThread]
+    static void Main()
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
-        [STAThread]
-        static void Main()
+        Application.EnableVisualStyles();
+        Application.SetCompatibleTextRenderingDefault(false);
+
+        using (CashierLoginForm loginForm = new CashierLoginForm())
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
-            ApplicationConfiguration.Initialize();
-            Application.Run(new UI.LandingForm());
+            if (loginForm.ShowDialog() == DialogResult.OK)
+            {
+                // Branch navigation based on authenticated user role[cite: 37]
+                string userRole = loginForm.AuthenticatedUserRole;
+
+                switch (userRole)
+                {
+                    case "Cashier":
+                    case "Sales Clerk":
+                        // Redirect Cashier to the Point of Sale screen[cite: 37, 44]
+                        Application.Run(new PosTerminalForm());
+                        break;
+
+                    case "Store Manager":
+                    case "Administrator":
+                        // Redirect Manager/Admin to Inventory Audit & Analytics[cite: 37, 53]
+                        Application.Run(new MainDashboardForm());
+                        break;
+
+                    default:
+                        MessageBox.Show("Unrecognized user role.", "Access Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        break;
+                }
+            }
         }
     }
 }

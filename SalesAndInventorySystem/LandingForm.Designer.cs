@@ -34,23 +34,32 @@
             btnManager = new Button();
             btnCashier = new Button();
             SuspendLayout();
-       
+            // 
+            // lblTitle
+            // 
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Segoe UI", 16F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitle.Location = new Point(50, 30);
+            lblTitle.Location = new Point(0, 30);
             lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(373, 45);
+            lblTitle.Size = new Size(435, 45);
             lblTitle.TabIndex = 0;
-            lblTitle.Text = "Sales & Inventory System";
+            lblTitle.Text = "Sales And Inventory System";
             lblTitle.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // lblSubtitle
+            // 
             lblSubtitle.AutoSize = true;
             lblSubtitle.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point, 0);
             lblSubtitle.ForeColor = Color.Gray;
-            lblSubtitle.Location = new Point(110, 70);
+            lblSubtitle.Location = new Point(80, 75);
             lblSubtitle.Name = "lblSubtitle";
             lblSubtitle.Size = new Size(246, 28);
             lblSubtitle.TabIndex = 1;
             lblSubtitle.Text = "Select your portal to log in";
+            lblSubtitle.Click += lblSubtitle_Click;
+            // 
+            // btnAdmin
+            // 
             btnAdmin.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAdmin.Location = new Point(80, 110);
             btnAdmin.Name = "btnAdmin";
@@ -58,7 +67,10 @@
             btnAdmin.TabIndex = 2;
             btnAdmin.Text = "Administrator Portal";
             btnAdmin.UseVisualStyleBackColor = true;
-            btnAdmin.Click += btnAdmin_Click; 
+            btnAdmin.Click += btnAdmin_Click;
+            // 
+            // btnManager
+            // 
             btnManager.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnManager.Location = new Point(80, 170);
             btnManager.Name = "btnManager";
@@ -67,6 +79,9 @@
             btnManager.Text = "Store Manager Portal";
             btnManager.UseVisualStyleBackColor = true;
             btnManager.Click += btnManager_Click;
+            // 
+            // btnCashier
+            // 
             btnCashier.Font = new Font("Segoe UI", 11F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnCashier.Location = new Point(80, 230);
             btnCashier.Name = "btnCashier";
@@ -75,6 +90,9 @@
             btnCashier.Text = "Cashier Portal";
             btnCashier.UseVisualStyleBackColor = true;
             btnCashier.Click += btnCashier_Click;
+            // 
+            // LandingForm
+            // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(431, 320);
@@ -88,7 +106,7 @@
             MaximizeBox = false;
             Name = "LandingForm";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Welcome - Select Portal";
+            Text = "Welcome";
             Load += LandingForm_Load;
             ResumeLayout(false);
             PerformLayout();

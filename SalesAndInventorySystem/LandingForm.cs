@@ -27,12 +27,24 @@ namespace UI
 
         private void btnCashier_Click(object sender, EventArgs e)
         {
-            LoginForm loginForm = new LoginForm("Cashier");
-            loginForm.Show();
             this.Hide();
+
+            // Open Cashier Login Form modally
+            using (CashierLoginForm cashierLogin = new CashierLoginForm())
+            {
+                cashierLogin.ShowDialog();
+            }
+
+            // Show selection portal again after logout/exit
+            this.Show();
         }
 
         private void LandingForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblSubtitle_Click(object sender, EventArgs e)
         {
 
         }
