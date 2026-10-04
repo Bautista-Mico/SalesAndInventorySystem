@@ -1,3 +1,4 @@
+using SalesAndInventorySystem;
 using System;
 using System.Windows.Forms;
 
@@ -21,11 +22,26 @@ namespace UI
 
         private void btnManager_Click(object sender, EventArgs e)
         {
-            AuthenticatedUserRole = "Manager";
-            LoginForm loginForm = new LoginForm("Manager");
-            loginForm.Show();
-            Hide();
+            AuthenticatedUserRole = "Store Manager";
+            this.Hide();
+
+            using (StoreManagerLoginForm managerLogin = new StoreManagerLoginForm())
+            {
+                DialogResult result = managerLogin.ShowDialog(this);
+
+                if (result == DialogResult.OK)
+                {
+                    using (StoreManagerDashboardForm managerDashboard = new StoreManagerDashboardForm())
+                    {
+                        managerDashboard.ShowDialog(this);
+                    }
+                }
+            }
+
+            this.Show();
         }
+
+    
 
         private void btnCashier_Click(object sender, EventArgs e)
         {
