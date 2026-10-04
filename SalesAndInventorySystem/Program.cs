@@ -1,5 +1,6 @@
 using System;
 using System.Windows.Forms;
+using UI;
 
 static class Program
 {
@@ -9,12 +10,11 @@ static class Program
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
 
-        using (CashierLoginForm loginForm = new CashierLoginForm())
+        using (LandingForm loginForm = new LandingForm())
         {
             if (loginForm.ShowDialog() == DialogResult.OK)
             {
-                // Branch navigation based on authenticated user role[cite: 37]
-                string userRole = loginForm.AuthenticatedUserRole;
+                string userRole = LandingForm.AuthenticatedUserRole;
 
                 switch (userRole)
                 {
@@ -36,5 +36,5 @@ static class Program
                 }
             }
         }
+        }
     }
-}
