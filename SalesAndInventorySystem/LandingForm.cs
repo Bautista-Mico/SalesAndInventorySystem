@@ -1,3 +1,6 @@
+using BusinessLogic.Controller;
+using BusinessLogic.Repository;
+using Model;
 using SalesAndInventorySystem;
 using System;
 using System.Windows.Forms;
@@ -14,10 +17,31 @@ namespace UI
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
-            AuthenticatedUserRole = "Admin";
-            LoginForm loginForm = new LoginForm("Admin");
-            loginForm.Show();
             Hide();
+
+            using (AdminLoginForm login = new AdminLoginForm())
+            {
+                if (login.ShowDialog(this) == DialogResult.OK)
+                {
+                    AuthenticatedUserRole = "Admin";
+                    using (AdminPortalForm adminPortal = new AdminPortalForm())
+                    {
+                        adminPortal.ShowDialog(this);
+                    }
+                }
+            }
+
+            Show();
+        }
+
+        private void LandingForm_Load(object sender, EventArgs e)
+        {
+            // In-memory data is empty on every start, so create the default admin account.
+            var users = new UserController(new UserRepository());
+            if (!users.GetAll().Any(u => u.Role == "Admin"))
+            {
+                users.Create(new User { Username = "admin", FullName = "System Administrator", Role = "Admin" }, "admin123");
+            }
         }
 
         private void btnManager_Click(object sender, EventArgs e)
@@ -62,9 +86,7 @@ namespace UI
             }
         }
 
-        private void LandingForm_Load(object sender, EventArgs e)
-        {
-        }
+
 
         private void lblSubtitle_Click(object sender, EventArgs e)
         {
