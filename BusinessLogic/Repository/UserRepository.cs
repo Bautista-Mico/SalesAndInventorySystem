@@ -1,97 +1,59 @@
-﻿using Model;
+﻿using Microsoft.Data.SqlClient;
+using SalesInventory.Model;
+using System.Data;
 
-namespace BusinessLogic.Repository;
+namespace SalesInventory.BusinessLogic.Repository;
 
-internal class StoredUser
+public static class UserRepository
 {
-    public User User { get; set; } = new();
-    public string PasswordHash { get; set; } = "";
-}
-
-// In-memory version: data lives only while the app is running.
-public class UserRepository
-{
-    internal static readonly List<StoredUser> Store = new();
-    internal static readonly object Sync = new();
-    private static int _nextId = 1;
-
-    public UserRepository(string connectionString = "") { }
-
-    public int Add(User user, string passwordHash)
+    public static User GetByLogin(string login)
     {
-        lock (Sync)
-        {
-            if (Store.Any(s => s.User.Username.Equals(user.Username, StringComparison.OrdinalIgnoreCase)))
-                throw new InvalidOperationException("Username already exists.");
-
-            var copy = Clone(user);
-            copy.UserId = _nextId++;
-            copy.CreatedAt = DateTime.Now;
-            Store.Add(new StoredUser { User = copy, PasswordHash = passwordHash });
-            return copy.UserId;
-        }
+        var dt = Db.Query("dbo.spUserLogin", Db.P("@Login", login));
+        return dt.Rows.Count == 0 ? null : Map(dt.Rows[0]);
     }
 
-    public List<User> Search(string keyword = "")
+    public static List<User> GetAll(string search) =>
+        Db.Query("dbo.spUserGetAll", Db.P("@Search", string.IsNullOrWhiteSpace(search) ? null : search.Trim()))
+          .Rows.Cast<DataRow>().Select(Map).ToList();
+
+    public static (int Attempts, bool Locked) RecordFailed(int userId, int max, int minutes)
     {
-        lock (Sync)
-        {
-            keyword ??= "";
-            return Store
-                .Where(s => s.User.Username.Contains(keyword, StringComparison.OrdinalIgnoreCase)
-                         || s.User.FullName.Contains(keyword, StringComparison.OrdinalIgnoreCase))
-                .OrderBy(s => s.User.UserId)
-                .Select(s => Clone(s.User))
-                .ToList();
-        }
+        var dt = Db.Query("dbo.spUserRecordFailedLogin", Db.P("@UserId", userId), Db.P("@MaxAttempts", max), Db.P("@LockMinutes", minutes));
+        var r = dt.Rows[0];
+        return (Db.Val<int>(r, "FailedAttempts"), Db.Val<bool>(r, "IsLocked"));
     }
 
-    public bool Update(User user, string? newPasswordHash = null)
+    public static void RecordSuccess(int userId) => Db.Query("dbo.spUserRecordSuccess", Db.P("@UserId", userId));
+
+    public static int Count() => Db.Val<int>(Db.Query("dbo.spUserCount").Rows[0], "Total");
+
+    public static int Save(User u, string passwordHash)
     {
-        lock (Sync)
-        {
-            var existing = Store.FirstOrDefault(s => s.User.UserId == user.UserId);
-            if (existing == null) return false;
-
-            if (Store.Any(s => s.User.UserId != user.UserId &&
-                               s.User.Username.Equals(user.Username, StringComparison.OrdinalIgnoreCase)))
-                throw new InvalidOperationException("Username already exists.");
-
-            existing.User.Username = user.Username;
-            existing.User.FullName = user.FullName;
-            existing.User.Role = user.Role;
-            existing.User.IsActive = user.IsActive;
-            if (newPasswordHash != null) existing.PasswordHash = newPasswordHash;
-            return true;
-        }
+        var dt = Db.Query("dbo.spUserSave",
+            Db.P("@UserId", u.UserId == 0 ? (object)null : u.UserId),
+            Db.P("@Username", u.Username), Db.P("@Email", u.Email), Db.P("@FullName", u.FullName),
+            Db.P("@Role", u.Role), Db.P("@IsActive", u.IsActive), Db.P("@PasswordHash", passwordHash));
+        return Db.Val<int>(dt.Rows[0], "UserId");
     }
 
-    public bool Unlock(int userId)
-    {
-        lock (Sync)
-        {
-            var existing = Store.FirstOrDefault(s => s.User.UserId == userId);
-            if (existing == null) return false;
-            existing.User.IsLocked = false;
-            existing.User.FailedLoginAttempts = 0;
-            return true;
-        }
-    }
+    public static void SetPassword(int userId, string hash) =>
+        Db.Query("dbo.spUserSetPassword", Db.P("@UserId", userId), Db.P("@PasswordHash", hash));
 
-    public bool Delete(int userId)
-    {
-        lock (Sync) return Store.RemoveAll(s => s.User.UserId == userId) > 0;
-    }
+    public static void Audit(int? userId, string action, string details) =>
+        Db.Query("dbo.spAuditLogAdd", Db.P("@UserId", userId), Db.P("@Action", action), Db.P("@Details", details));
 
-    private static User Clone(User u) => new()
+    private static User Map(DataRow r) => new()
     {
-        UserId = u.UserId,
-        Username = u.Username,
-        FullName = u.FullName,
-        Role = u.Role,
-        IsActive = u.IsActive,
-        FailedLoginAttempts = u.FailedLoginAttempts,
-        IsLocked = u.IsLocked,
-        CreatedAt = u.CreatedAt
+        UserId = Db.Val<int>(r, "UserId"),
+        Username = Db.Val<string>(r, "Username"),
+        Email = Db.Val<string>(r, "Email"),
+        FullName = Db.Val<string>(r, "FullName"),
+        PasswordHash = Db.Val<string>(r, "PasswordHash"),
+        Role = Db.Val<string>(r, "Role"),
+        IsActive = Db.Val<bool>(r, "IsActive"),
+        FailedAttempts = Db.Val<int>(r, "FailedAttempts"),
+        IsLocked = Db.Val<bool>(r, "IsLocked"),
+        LockoutEnd = Db.Val<DateTime?>(r, "LockoutEnd"),
+        LastLoginAt = Db.Val<DateTime?>(r, "LastLoginAt")
     };
 }

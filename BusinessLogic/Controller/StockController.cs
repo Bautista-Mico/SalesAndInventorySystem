@@ -1,4 +1,6 @@
-﻿using System.Data;
+﻿using SalesInventory.BusinessLogic.Repository;
+using SalesInventory.Model;
+using System.Data;
 using System.Text.Json;
 
 namespace SalesInventory.BusinessLogic.Controller;

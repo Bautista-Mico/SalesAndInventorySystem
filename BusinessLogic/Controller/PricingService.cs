@@ -1,4 +1,6 @@
-﻿namespace SalesInventory.BusinessLogic.Controller;
+﻿using SalesInventory.Model;
+
+namespace SalesInventory.BusinessLogic.Controller;
 
 /// <summary>
 /// Cart maths. Selling prices are VAT-inclusive (VAT items contain 12% VAT). This mirrors spSaleComplete,
