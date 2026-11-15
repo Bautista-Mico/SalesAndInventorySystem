@@ -1,18 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
-using System.Windows.Forms;
+﻿namespace SalesInventory.UI;
 
-namespace UI
+/// <summary>Small modal prompt for one value (text, money or password).</summary>
+public partial class PromptForm : Form
 {
-    public partial class PromptForm : Form
+    public string Value => txtValue.Text;
+
+    public PromptForm() : this("", "", null, false) { }
+
+    private PromptForm(string title, string label, string initial, bool password)
     {
-        public PromptForm()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
+        Text = title;
+        lblPrompt.Text = label;
+        txtValue.Text = initial ?? "";
+        txtValue.UseSystemPasswordChar = password;
+    }
+
+    public static string Ask(IWin32Window owner, string title, string label, string initial = "", bool password = false)
+    {
+        using var f = new PromptForm(title, label, initial, password);
+        return f.ShowDialog(owner) == DialogResult.OK ? f.Value : null;
     }
 }

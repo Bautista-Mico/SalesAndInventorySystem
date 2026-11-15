@@ -1,6 +1,5 @@
-﻿using BusinessLogic.Repository;
-using Model;
-using static System.Collections.Specialized.BitVector32;
+﻿using SalesInventory.BusinessLogic.Repository;
+using SalesInventory.Model;
 
 namespace SalesInventory.BusinessLogic.Controller;
 
