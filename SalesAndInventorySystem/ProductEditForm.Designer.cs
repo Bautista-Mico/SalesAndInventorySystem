@@ -1,6 +1,6 @@
 ﻿namespace UI
 {
-    partial class PosTerminalForm
+    partial class ProductEditForm
     {
         /// <summary>
         /// Required designer variable.
@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "PosTerminalForm";
+            this.Text = "ProductEditForm";
         }
 
         #endregion

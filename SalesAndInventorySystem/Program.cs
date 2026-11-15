@@ -1,40 +1,54 @@
-using System;
-using System.Windows.Forms;
 using UI;
 
-static class Program
+namespace SalesInventory.UI;
+
+internal static class Program
 {
+    public static string LoginNotice;
+
     [STAThread]
-    static void Main()
+    private static void Main()
     {
-        Application.EnableVisualStyles();
-        Application.SetCompatibleTextRenderingDefault(false);
+        ApplicationConfiguration.Initialize();
 
-        using (LandingForm loginForm = new LandingForm())
+        try
         {
-            if (loginForm.ShowDialog() == DialogResult.OK)
-            {
-                string userRole = LandingForm.AuthenticatedUserRole;
-
-                switch (userRole)
-                {
-                    case "Cashier":
-                    case "Sales Clerk":
-                        // Redirect Cashier to the Point of Sale screen[cite: 37, 44]
-                        Application.Run(new PosTerminalForm());
-                        break;
-
-                    case "Store Manager":
-                    case "Administrator":
-                        // Redirect Manager/Admin to Inventory Audit & Analytics[cite: 37, 53]
-                        Application.Run(new MainDashboardForm());
-                        break;
-
-                    default:
-                        MessageBox.Show("Unrecognized user role.", "Access Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        break;
-                }
-            }
+            Cursor.Current = Cursors.WaitCursor;
+            DbSetup.EnsureDatabase(Path.Combine(AppContext.BaseDirectory, "DB"));
         }
+        catch (Exception ex)
+        {
+            MessageBox.Show("The database could not be prepared.\n\n" + ex.Message +
+                "\n\nCheck dbconfig.json (next to the .exe) or the SALESINV_CONNSTR environment variable.",
+                "Database setup failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
+        }
+        finally { Cursor.Current = Cursors.Default; }
+
+        while (true)
+        {
+            using var login = new LoginForm();
+            if (login.ShowDialog() != DialogResult.OK) break;
+            using var main = new MainForm();
+            main.ShowDialog();
+            if (!main.LogoutRequested) break;
         }
     }
+}
+
+/// <summary>Remembers only the username (never the password) for the "Remember me" box.</summary>
+public static class Prefs
+{
+    private static string FilePath
+    {
+        get
+        {
+            var dir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "SalesInventory");
+            Directory.CreateDirectory(dir);
+            return Path.Combine(dir, "remember.txt");
+        }
+    }
+    public static string Remembered() { try { return File.Exists(FilePath) ? File.ReadAllText(FilePath).Trim() : ""; } catch { return ""; } }
+    public static void Remember(string username) { try { File.WriteAllText(FilePath, username ?? ""); } catch { } }
+    public static void Forget() { try { if (File.Exists(FilePath)) File.Delete(FilePath); } catch { } }
+}

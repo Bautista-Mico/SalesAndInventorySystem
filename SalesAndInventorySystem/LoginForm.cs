@@ -1,26 +1,18 @@
-﻿namespace UI
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Text;
+using System.Windows.Forms;
+
+namespace UI
 {
-    internal class LoginForm
+    public partial class LoginForm : Form
     {
-        private string v;
-
-        public LoginForm(string v)
+        public LoginForm()
         {
-            this.v = v;
-        }
-
-        internal void Show()
-        {
-            // Create an instance of the form first
-            LandingForm cashierForm = new LandingForm();
-
-            // Call Show() on the instance object
-            cashierForm.Show();
-        }
-
-        internal void ShowDialog()
-        {
-            throw new NotImplementedException();
+            InitializeComponent();
         }
     }
 }
