@@ -1,0 +1,7 @@
+CREATE OR ALTER PROCEDURE dbo.spUserCount
+AS
+BEGIN
+    SET NOCOUNT ON;
+    SELECT COUNT(*) AS Total FROM dbo.Users;
+END
+GO

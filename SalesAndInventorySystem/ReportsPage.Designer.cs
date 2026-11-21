@@ -70,7 +70,7 @@
             tlpMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 52F));
             tlpMain.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tlpMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
-            tlpMain.Size = new Size(1005, 523);
+            tlpMain.Size = new Size(817, 325);
             tlpMain.TabIndex = 0;
             // 
             // flpFilters
@@ -87,7 +87,7 @@
             flpFilters.Location = new Point(3, 3);
             flpFilters.Name = "flpFilters";
             flpFilters.Padding = new Padding(0, 2, 0, 2);
-            flpFilters.Size = new Size(999, 46);
+            flpFilters.Size = new Size(811, 46);
             flpFilters.TabIndex = 0;
             flpFilters.WrapContents = false;
             // 
@@ -180,7 +180,7 @@
             tlpMid.Name = "tlpMid";
             tlpMid.RowCount = 1;
             tlpMid.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tlpMid.Size = new Size(999, 409);
+            tlpMid.Size = new Size(811, 211);
             tlpMid.TabIndex = 1;
             // 
             // pnlChart
@@ -192,7 +192,7 @@
             pnlChart.Location = new Point(3, 3);
             pnlChart.Name = "pnlChart";
             pnlChart.Padding = new Padding(2);
-            pnlChart.Size = new Size(393, 403);
+            pnlChart.Size = new Size(318, 205);
             pnlChart.TabIndex = 0;
             // 
             // chart
@@ -201,7 +201,7 @@
             chart.Dock = DockStyle.Fill;
             chart.Location = new Point(2, 2);
             chart.Name = "chart";
-            chart.Size = new Size(387, 397);
+            chart.Size = new Size(312, 199);
             chart.TabIndex = 0;
             // 
             // tlpRight
@@ -212,13 +212,13 @@
             tlpRight.Controls.Add(dgvReport, 0, 0);
             tlpRight.Controls.Add(flpCounted, 0, 1);
             tlpRight.Dock = DockStyle.Fill;
-            tlpRight.Location = new Point(409, 0);
+            tlpRight.Location = new Point(334, 0);
             tlpRight.Margin = new Padding(10, 0, 0, 0);
             tlpRight.Name = "tlpRight";
             tlpRight.RowCount = 2;
             tlpRight.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tlpRight.RowStyles.Add(new RowStyle(SizeType.Absolute, 46F));
-            tlpRight.Size = new Size(590, 409);
+            tlpRight.Size = new Size(477, 211);
             tlpRight.TabIndex = 1;
             // 
             // dgvReport
@@ -260,7 +260,7 @@
             dgvReport.RowHeadersVisible = false;
             dgvReport.RowTemplate.Height = 32;
             dgvReport.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvReport.Size = new Size(584, 357);
+            dgvReport.Size = new Size(471, 159);
             dgvReport.TabIndex = 0;
             // 
             // flpCounted
@@ -269,10 +269,10 @@
             flpCounted.Controls.Add(txtCounted);
             flpCounted.Controls.Add(lblRecon);
             flpCounted.Dock = DockStyle.Fill;
-            flpCounted.Location = new Point(3, 366);
+            flpCounted.Location = new Point(3, 168);
             flpCounted.Name = "flpCounted";
             flpCounted.Padding = new Padding(0, 2, 0, 2);
-            flpCounted.Size = new Size(584, 40);
+            flpCounted.Size = new Size(471, 40);
             flpCounted.TabIndex = 1;
             flpCounted.WrapContents = false;
             // 
@@ -304,10 +304,10 @@
             flpBottom.Controls.Add(btnExport);
             flpBottom.Controls.Add(btnClear);
             flpBottom.Dock = DockStyle.Fill;
-            flpBottom.Location = new Point(3, 470);
+            flpBottom.Location = new Point(3, 272);
             flpBottom.Name = "flpBottom";
             flpBottom.Padding = new Padding(0, 2, 0, 2);
-            flpBottom.Size = new Size(999, 50);
+            flpBottom.Size = new Size(811, 50);
             flpBottom.TabIndex = 2;
             flpBottom.WrapContents = false;
             // 
@@ -366,7 +366,7 @@
             // 
             Controls.Add(tlpMain);
             Name = "ReportsPage";
-            Size = new Size(1045, 563);
+            Size = new Size(857, 365);
             tlpMain.ResumeLayout(false);
             flpFilters.ResumeLayout(false);
             flpFilters.PerformLayout();
