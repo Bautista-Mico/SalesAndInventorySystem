@@ -21,122 +21,146 @@
         /// <summary>Required method for Designer support - do not modify the contents of this method with the code editor.</summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.pnlBody = new System.Windows.Forms.Panel();
-            this.pnlContent = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
-            this.pnlSide = new System.Windows.Forms.Panel();
-            this.flpNav = new System.Windows.Forms.FlowLayoutPanel();
-            this.pnlFooter = new System.Windows.Forms.Panel();
-            this.btnLogout = new System.Windows.Forms.Button();
-            this.lblUser = new System.Windows.Forms.Label();
-            this.lblBrand = new System.Windows.Forms.Label();
-            this.idleTimer = new System.Windows.Forms.Timer(this.components);
-            this.pnlBody.SuspendLayout();
-            this.pnlContent.SuspendLayout();
-            this.pnlSide.SuspendLayout();
-            this.flpNav.SuspendLayout();
-            this.pnlFooter.SuspendLayout();
-            this.SuspendLayout();
+            components = new System.ComponentModel.Container();
+            pnlBody = new Panel();
+            pnlContent = new Panel();
+            lblTitle = new Label();
+            pnlSide = new Panel();
+            flpNav = new FlowLayoutPanel();
+            pnlFooter = new Panel();
+            btnLogout = new Button();
+            lblUser = new Label();
+            lblBrand = new Label();
+            idleTimer = new System.Windows.Forms.Timer(components);
+            pnlBody.SuspendLayout();
+            pnlSide.SuspendLayout();
+            pnlFooter.SuspendLayout();
+            SuspendLayout();
             // 
             // pnlBody
             // 
-            this.pnlBody.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlBody.Controls.Add(this.pnlContent);
-            this.pnlBody.Controls.Add(this.lblTitle);
+            pnlBody.Controls.Add(pnlContent);
+            pnlBody.Controls.Add(lblTitle);
+            pnlBody.Dock = DockStyle.Fill;
+            pnlBody.Location = new Point(230, 0);
+            pnlBody.Name = "pnlBody";
+            pnlBody.Size = new Size(854, 661);
+            pnlBody.TabIndex = 0;
             // 
             // pnlContent
             // 
-            this.pnlContent.BackColor = System.Drawing.Color.FromArgb(248, 250, 252);
-            this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            pnlContent.BackColor = Color.FromArgb(248, 250, 252);
+            pnlContent.Dock = DockStyle.Fill;
+            pnlContent.Location = new Point(0, 64);
+            pnlContent.Name = "pnlContent";
+            pnlContent.Size = new Size(854, 597);
+            pnlContent.TabIndex = 0;
             // 
             // lblTitle
             // 
-            this.lblTitle.BackColor = System.Drawing.Color.White;
-            this.lblTitle.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblTitle.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblTitle.ForeColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            this.lblTitle.Padding = new System.Windows.Forms.Padding(24, 14, 0, 0);
-            this.lblTitle.Size = new System.Drawing.Size(854, 64);
+            lblTitle.BackColor = Color.White;
+            lblTitle.Dock = DockStyle.Top;
+            lblTitle.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
+            lblTitle.ForeColor = Color.FromArgb(17, 24, 39);
+            lblTitle.Location = new Point(0, 0);
+            lblTitle.Name = "lblTitle";
+            lblTitle.Padding = new Padding(24, 14, 0, 0);
+            lblTitle.Size = new Size(854, 64);
+            lblTitle.TabIndex = 1;
             // 
             // pnlSide
             // 
-            this.pnlSide.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.pnlSide.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pnlSide.Size = new System.Drawing.Size(230, 661);
-            this.pnlSide.Controls.Add(this.flpNav);
-            this.pnlSide.Controls.Add(this.pnlFooter);
-            this.pnlSide.Controls.Add(this.lblBrand);
+            pnlSide.BackColor = Color.FromArgb(30, 41, 59);
+            pnlSide.Controls.Add(flpNav);
+            pnlSide.Controls.Add(pnlFooter);
+            pnlSide.Controls.Add(lblBrand);
+            pnlSide.Dock = DockStyle.Left;
+            pnlSide.Location = new Point(0, 0);
+            pnlSide.Name = "pnlSide";
+            pnlSide.Size = new Size(230, 661);
+            pnlSide.TabIndex = 1;
             // 
             // flpNav
             // 
-            this.flpNav.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpNav.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flpNav.Padding = new System.Windows.Forms.Padding(10, 10, 10, 0);
-            this.flpNav.WrapContents = false;
+            flpNav.Dock = DockStyle.Fill;
+            flpNav.FlowDirection = FlowDirection.TopDown;
+            flpNav.Location = new Point(0, 66);
+            flpNav.Name = "flpNav";
+            flpNav.Padding = new Padding(10, 10, 10, 0);
+            flpNav.Size = new Size(230, 485);
+            flpNav.TabIndex = 0;
+            flpNav.WrapContents = false;
             // 
             // pnlFooter
             // 
-            this.pnlFooter.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.pnlFooter.Padding = new System.Windows.Forms.Padding(14, 10, 14, 10);
-            this.pnlFooter.Size = new System.Drawing.Size(230, 110);
-            this.pnlFooter.Controls.Add(this.btnLogout);
-            this.pnlFooter.Controls.Add(this.lblUser);
+            pnlFooter.Controls.Add(btnLogout);
+            pnlFooter.Controls.Add(lblUser);
+            pnlFooter.Dock = DockStyle.Bottom;
+            pnlFooter.Location = new Point(0, 551);
+            pnlFooter.Name = "pnlFooter";
+            pnlFooter.Padding = new Padding(14, 10, 14, 10);
+            pnlFooter.Size = new Size(230, 110);
+            pnlFooter.TabIndex = 1;
             // 
             // btnLogout
             // 
-            this.btnLogout.BackColor = System.Drawing.Color.FromArgb(71, 85, 105);
-            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogout.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnLogout.ForeColor = System.Drawing.Color.White;
-            this.btnLogout.Margin = new System.Windows.Forms.Padding(0, 4, 10, 4);
-            this.btnLogout.Size = new System.Drawing.Size(190, 36);
-            this.btnLogout.Text = "Log out";
-            this.btnLogout.UseVisualStyleBackColor = false;
-            this.btnLogout.FlatAppearance.BorderSize = 0;
-            this.btnLogout.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            btnLogout.BackColor = Color.FromArgb(71, 85, 105);
+            btnLogout.Cursor = Cursors.Hand;
+            btnLogout.Dock = DockStyle.Bottom;
+            btnLogout.FlatAppearance.BorderSize = 0;
+            btnLogout.FlatStyle = FlatStyle.Flat;
+            btnLogout.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnLogout.ForeColor = Color.White;
+            btnLogout.Location = new Point(14, 64);
+            btnLogout.Margin = new Padding(0, 4, 10, 4);
+            btnLogout.Name = "btnLogout";
+            btnLogout.Size = new Size(202, 36);
+            btnLogout.TabIndex = 0;
+            btnLogout.Text = "Log out";
+            btnLogout.UseVisualStyleBackColor = false;
+            btnLogout.Click += btnLogout_Click;
             // 
             // lblUser
             // 
-            this.lblUser.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblUser.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblUser.ForeColor = System.Drawing.Color.FromArgb(203, 213, 225);
-            this.lblUser.Size = new System.Drawing.Size(202, 46);
+            lblUser.Dock = DockStyle.Top;
+            lblUser.Font = new Font("Segoe UI", 10F);
+            lblUser.ForeColor = Color.FromArgb(203, 213, 225);
+            lblUser.Location = new Point(14, 10);
+            lblUser.Name = "lblUser";
+            lblUser.Size = new Size(202, 46);
+            lblUser.TabIndex = 1;
             // 
             // lblBrand
             // 
-            this.lblBrand.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblBrand.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblBrand.ForeColor = System.Drawing.Color.White;
-            this.lblBrand.Padding = new System.Windows.Forms.Padding(18, 0, 0, 0);
-            this.lblBrand.Size = new System.Drawing.Size(230, 64);
-            this.lblBrand.Text = "Sales && Inventory";
+            lblBrand.Dock = DockStyle.Top;
+            lblBrand.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblBrand.ForeColor = Color.White;
+            lblBrand.Location = new Point(0, 0);
+            lblBrand.Name = "lblBrand";
+            lblBrand.Padding = new Padding(18, 0, 0, 0);
+            lblBrand.Size = new Size(230, 66);
+            lblBrand.TabIndex = 2;
+            lblBrand.Text = "Sales And Inventory";
             // 
             // idleTimer
             // 
-            this.idleTimer.Interval = 10000;
+            idleTimer.Interval = 10000;
             // 
             // MainForm
             // 
-            this.BackColor = System.Drawing.Color.FromArgb(248, 250, 252);
-            this.ClientSize = new System.Drawing.Size(1084, 661);
-            this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MinimumSize = new System.Drawing.Size(1100, 700);
-            this.Text = "Sales & Inventory";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Controls.Add(this.pnlBody);
-            this.Controls.Add(this.pnlSide);
-            this.Name = "MainForm";
-            this.pnlFooter.ResumeLayout(false);
-            this.flpNav.ResumeLayout(false);
-            this.flpNav.PerformLayout();
-            this.pnlSide.ResumeLayout(false);
-            this.pnlContent.ResumeLayout(false);
-            this.pnlBody.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            BackColor = Color.FromArgb(248, 250, 252);
+            ClientSize = new Size(1084, 661);
+            Controls.Add(pnlBody);
+            Controls.Add(pnlSide);
+            Font = new Font("Segoe UI", 10F);
+            MinimumSize = new Size(1100, 700);
+            Name = "MainForm";
+            Text = "Sales & Inventory";
+            WindowState = FormWindowState.Maximized;
+            pnlBody.ResumeLayout(false);
+            pnlSide.ResumeLayout(false);
+            pnlFooter.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion

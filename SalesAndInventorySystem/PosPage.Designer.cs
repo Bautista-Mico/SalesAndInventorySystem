@@ -93,7 +93,7 @@ namespace SalesInventory.UI
             tlpRoot.Name = "tlpRoot";
             tlpRoot.RowCount = 1;
             tlpRoot.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tlpRoot.Size = new Size(1005, 523);
+            tlpRoot.Size = new Size(817, 325);
             tlpRoot.TabIndex = 0;
             // 
             // tlpLeft
@@ -109,7 +109,7 @@ namespace SalesInventory.UI
             tlpLeft.RowCount = 2;
             tlpLeft.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tlpLeft.RowStyles.Add(new RowStyle(SizeType.Absolute, 76F));
-            tlpLeft.Size = new Size(639, 517);
+            tlpLeft.Size = new Size(451, 319);
             tlpLeft.TabIndex = 0;
             // 
             // dgvCart
@@ -151,7 +151,7 @@ namespace SalesInventory.UI
             dgvCart.RowHeadersVisible = false;
             dgvCart.RowTemplate.Height = 32;
             dgvCart.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvCart.Size = new Size(633, 435);
+            dgvCart.Size = new Size(445, 237);
             dgvCart.TabIndex = 0;
             // 
             // colCartSKU
@@ -223,10 +223,10 @@ namespace SalesInventory.UI
             pnlAdd.BorderStyle = BorderStyle.FixedSingle;
             pnlAdd.Controls.Add(flpAdd);
             pnlAdd.Dock = DockStyle.Fill;
-            pnlAdd.Location = new Point(3, 444);
+            pnlAdd.Location = new Point(3, 246);
             pnlAdd.Name = "pnlAdd";
             pnlAdd.Padding = new Padding(12);
-            pnlAdd.Size = new Size(633, 70);
+            pnlAdd.Size = new Size(445, 70);
             pnlAdd.TabIndex = 1;
             // 
             // flpAdd
@@ -241,7 +241,7 @@ namespace SalesInventory.UI
             flpAdd.Location = new Point(12, 12);
             flpAdd.Name = "flpAdd";
             flpAdd.Padding = new Padding(0, 2, 0, 2);
-            flpAdd.Size = new Size(607, 44);
+            flpAdd.Size = new Size(419, 44);
             flpAdd.TabIndex = 0;
             flpAdd.WrapContents = false;
             // 
@@ -330,10 +330,10 @@ namespace SalesInventory.UI
             pnlRight.BorderStyle = BorderStyle.FixedSingle;
             pnlRight.Controls.Add(flpStack);
             pnlRight.Dock = DockStyle.Fill;
-            pnlRight.Location = new Point(648, 3);
+            pnlRight.Location = new Point(460, 3);
             pnlRight.Name = "pnlRight";
             pnlRight.Padding = new Padding(12);
-            pnlRight.Size = new Size(354, 517);
+            pnlRight.Size = new Size(354, 319);
             pnlRight.TabIndex = 1;
             // 
             // flpStack
@@ -356,7 +356,7 @@ namespace SalesInventory.UI
             flpStack.FlowDirection = FlowDirection.TopDown;
             flpStack.Location = new Point(12, 12);
             flpStack.Name = "flpStack";
-            flpStack.Size = new Size(328, 491);
+            flpStack.Size = new Size(328, 293);
             flpStack.TabIndex = 0;
             flpStack.WrapContents = false;
             // 
@@ -623,7 +623,7 @@ namespace SalesInventory.UI
             // 
             Controls.Add(tlpRoot);
             Name = "PosPage";
-            Size = new Size(1045, 563);
+            Size = new Size(857, 365);
             tlpRoot.ResumeLayout(false);
             tlpLeft.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgvCart).EndInit();

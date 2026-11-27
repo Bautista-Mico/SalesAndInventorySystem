@@ -83,7 +83,7 @@
             tlpMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 36F));
             tlpMain.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tlpMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
-            tlpMain.Size = new Size(510, 388);
+            tlpMain.Size = new Size(817, 325);
             tlpMain.TabIndex = 0;
             // 
             // flpKpis
@@ -97,7 +97,7 @@
             flpKpis.Dock = DockStyle.Fill;
             flpKpis.Location = new Point(3, 3);
             flpKpis.Name = "flpKpis";
-            flpKpis.Size = new Size(504, 104);
+            flpKpis.Size = new Size(811, 104);
             flpKpis.TabIndex = 0;
             flpKpis.WrapContents = false;
             // 
@@ -291,7 +291,7 @@
             lblHeading.Location = new Point(0, 118);
             lblHeading.Margin = new Padding(0, 8, 8, 0);
             lblHeading.Name = "lblHeading";
-            lblHeading.Size = new Size(502, 28);
+            lblHeading.Size = new Size(809, 28);
             lblHeading.TabIndex = 1;
             lblHeading.Text = "Items at or below their reorder point";
             // 
@@ -335,7 +335,7 @@
             dgvLowStock.RowHeadersVisible = false;
             dgvLowStock.RowTemplate.Height = 32;
             dgvLowStock.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvLowStock.Size = new Size(504, 180);
+            dgvLowStock.Size = new Size(811, 117);
             dgvLowStock.TabIndex = 2;
             // 
             // colLowStockSKU
@@ -403,10 +403,10 @@
             flpQuick.Controls.Add(btnCatalog);
             flpQuick.Controls.Add(btnStockUpdate);
             flpQuick.Dock = DockStyle.Fill;
-            flpQuick.Location = new Point(3, 335);
+            flpQuick.Location = new Point(3, 272);
             flpQuick.Name = "flpQuick";
             flpQuick.Padding = new Padding(0, 2, 0, 2);
-            flpQuick.Size = new Size(504, 50);
+            flpQuick.Size = new Size(811, 50);
             flpQuick.TabIndex = 3;
             flpQuick.WrapContents = false;
             // 
@@ -465,7 +465,7 @@
             // 
             Controls.Add(tlpMain);
             Name = "DashboardPage";
-            Size = new Size(550, 428);
+            Size = new Size(857, 365);
             tlpMain.ResumeLayout(false);
             tlpMain.PerformLayout();
             flpKpis.ResumeLayout(false);

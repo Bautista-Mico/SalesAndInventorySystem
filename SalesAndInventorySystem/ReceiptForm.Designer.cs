@@ -21,188 +21,190 @@
         /// <summary>Required method for Designer support - do not modify the contents of this method with the code editor.</summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.tlpMain = new System.Windows.Forms.TableLayoutPanel();
-            this.pnlTop = new System.Windows.Forms.Panel();
-            this.lblInvoice = new System.Windows.Forms.Label();
-            this.lblMeta = new System.Windows.Forms.Label();
-            this.lblTax = new System.Windows.Forms.Label();
-            this.cmbTax = new System.Windows.Forms.ComboBox();
-            this.txtTin = new System.Windows.Forms.TextBox();
-            this.pnlPaper = new System.Windows.Forms.Panel();
-            this.txtPreview = new System.Windows.Forms.TextBox();
-            this.flpButtons = new System.Windows.Forms.FlowLayoutPanel();
-            this.btnPrint = new System.Windows.Forms.Button();
-            this.btnSend = new System.Windows.Forms.Button();
-            this.btnReplacement = new System.Windows.Forms.Button();
-            this.tlpMain.SuspendLayout();
-            this.pnlTop.SuspendLayout();
-            this.pnlPaper.SuspendLayout();
-            this.flpButtons.SuspendLayout();
-            this.SuspendLayout();
+            tlpMain = new TableLayoutPanel();
+            pnlTop = new Panel();
+            lblInvoice = new Label();
+            lblMeta = new Label();
+            lblTax = new Label();
+            cmbTax = new ComboBox();
+            txtTin = new TextBox();
+            pnlPaper = new Panel();
+            txtPreview = new TextBox();
+            flpButtons = new FlowLayoutPanel();
+            btnPrint = new Button();
+            tlpMain.SuspendLayout();
+            pnlTop.SuspendLayout();
+            pnlPaper.SuspendLayout();
+            flpButtons.SuspendLayout();
+            SuspendLayout();
             // 
             // tlpMain
             // 
-            this.tlpMain.BackColor = System.Drawing.Color.Transparent;
-            this.tlpMain.ColumnCount = 1;
-            this.tlpMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tlpMain.RowCount = 3;
-            this.tlpMain.Padding = new System.Windows.Forms.Padding(16, 16, 16, 16);
-            this.tlpMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 76F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tlpMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 56F));
-            this.tlpMain.Controls.Add(this.pnlTop, 0, 0);
-            this.tlpMain.Controls.Add(this.pnlPaper, 0, 1);
-            this.tlpMain.Controls.Add(this.flpButtons, 0, 2);
+            tlpMain.BackColor = Color.Transparent;
+            tlpMain.ColumnCount = 1;
+            tlpMain.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tlpMain.Controls.Add(pnlTop, 0, 0);
+            tlpMain.Controls.Add(pnlPaper, 0, 1);
+            tlpMain.Controls.Add(flpButtons, 0, 2);
+            tlpMain.Dock = DockStyle.Fill;
+            tlpMain.Location = new Point(0, 0);
+            tlpMain.Name = "tlpMain";
+            tlpMain.Padding = new Padding(16);
+            tlpMain.RowCount = 3;
+            tlpMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 76F));
+            tlpMain.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tlpMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
+            tlpMain.Size = new Size(620, 701);
+            tlpMain.TabIndex = 0;
             // 
             // pnlTop
             // 
-            this.pnlTop.BackColor = System.Drawing.Color.White;
-            this.pnlTop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlTop.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlTop.Controls.Add(this.lblInvoice);
-            this.pnlTop.Controls.Add(this.lblMeta);
-            this.pnlTop.Controls.Add(this.lblTax);
-            this.pnlTop.Controls.Add(this.cmbTax);
-            this.pnlTop.Controls.Add(this.txtTin);
+            pnlTop.BackColor = Color.White;
+            pnlTop.BorderStyle = BorderStyle.FixedSingle;
+            pnlTop.Controls.Add(lblInvoice);
+            pnlTop.Controls.Add(lblMeta);
+            pnlTop.Controls.Add(lblTax);
+            pnlTop.Controls.Add(cmbTax);
+            pnlTop.Controls.Add(txtTin);
+            pnlTop.Dock = DockStyle.Fill;
+            pnlTop.Location = new Point(19, 19);
+            pnlTop.Name = "pnlTop";
+            pnlTop.Size = new Size(582, 70);
+            pnlTop.TabIndex = 0;
             // 
             // lblInvoice
             // 
-            this.lblInvoice.AutoSize = true;
-            this.lblInvoice.BackColor = System.Drawing.Color.Transparent;
-            this.lblInvoice.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblInvoice.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.lblInvoice.Margin = new System.Windows.Forms.Padding(0, 8, 8, 0);
-            this.lblInvoice.Text = "Invoice";
-            this.lblInvoice.Location = new System.Drawing.Point(12, 8);
+            lblInvoice.AutoSize = true;
+            lblInvoice.BackColor = Color.Transparent;
+            lblInvoice.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblInvoice.ForeColor = Color.FromArgb(30, 41, 59);
+            lblInvoice.Location = new Point(12, 8);
+            lblInvoice.Margin = new Padding(0, 8, 8, 0);
+            lblInvoice.Name = "lblInvoice";
+            lblInvoice.Size = new Size(74, 25);
+            lblInvoice.TabIndex = 0;
+            lblInvoice.Text = "Invoice";
             // 
             // lblMeta
             // 
-            this.lblMeta.AutoSize = true;
-            this.lblMeta.BackColor = System.Drawing.Color.Transparent;
-            this.lblMeta.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblMeta.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            this.lblMeta.Margin = new System.Windows.Forms.Padding(0, 8, 8, 0);
-            this.lblMeta.Text = "Terminal";
-            this.lblMeta.Location = new System.Drawing.Point(12, 40);
+            lblMeta.AutoSize = true;
+            lblMeta.BackColor = Color.Transparent;
+            lblMeta.Font = new Font("Segoe UI", 10F);
+            lblMeta.ForeColor = Color.FromArgb(100, 116, 139);
+            lblMeta.Location = new Point(12, 40);
+            lblMeta.Margin = new Padding(0, 8, 8, 0);
+            lblMeta.Name = "lblMeta";
+            lblMeta.Size = new Size(60, 19);
+            lblMeta.TabIndex = 1;
+            lblMeta.Text = "Terminal";
             // 
             // lblTax
             // 
-            this.lblTax.AutoSize = true;
-            this.lblTax.BackColor = System.Drawing.Color.Transparent;
-            this.lblTax.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblTax.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            this.lblTax.Margin = new System.Windows.Forms.Padding(0, 8, 8, 0);
-            this.lblTax.Text = "Tax:";
-            this.lblTax.Location = new System.Drawing.Point(300, 42);
+            lblTax.AutoSize = true;
+            lblTax.BackColor = Color.Transparent;
+            lblTax.Font = new Font("Segoe UI", 10F);
+            lblTax.ForeColor = Color.FromArgb(100, 116, 139);
+            lblTax.Location = new Point(300, 42);
+            lblTax.Margin = new Padding(0, 8, 8, 0);
+            lblTax.Name = "lblTax";
+            lblTax.Size = new Size(30, 19);
+            lblTax.TabIndex = 2;
+            lblTax.Text = "Tax:";
             // 
             // cmbTax
             // 
-            this.cmbTax.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbTax.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.cmbTax.FormattingEnabled = true;
-            this.cmbTax.Margin = new System.Windows.Forms.Padding(0, 6, 10, 6);
-            this.cmbTax.Size = new System.Drawing.Size(130, 25);
-            this.cmbTax.Location = new System.Drawing.Point(338, 36);
+            cmbTax.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbTax.Font = new Font("Segoe UI", 10F);
+            cmbTax.FormattingEnabled = true;
+            cmbTax.Location = new Point(338, 36);
+            cmbTax.Margin = new Padding(0, 6, 10, 6);
+            cmbTax.Name = "cmbTax";
+            cmbTax.Size = new Size(130, 25);
+            cmbTax.TabIndex = 3;
             // 
             // txtTin
             // 
-            this.txtTin.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtTin.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtTin.Margin = new System.Windows.Forms.Padding(0, 6, 10, 6);
-            this.txtTin.PlaceholderText = "Business TIN";
-            this.txtTin.Size = new System.Drawing.Size(130, 25);
-            this.txtTin.Location = new System.Drawing.Point(478, 38);
+            txtTin.BorderStyle = BorderStyle.FixedSingle;
+            txtTin.Font = new Font("Segoe UI", 10F);
+            txtTin.Location = new Point(478, 38);
+            txtTin.Margin = new Padding(0, 6, 10, 6);
+            txtTin.Name = "txtTin";
+            txtTin.PlaceholderText = "Business TIN";
+            txtTin.Size = new Size(130, 25);
+            txtTin.TabIndex = 4;
             // 
             // pnlPaper
             // 
-            this.pnlPaper.BackColor = System.Drawing.Color.White;
-            this.pnlPaper.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlPaper.Padding = new System.Windows.Forms.Padding(14, 14, 14, 14);
-            this.pnlPaper.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pnlPaper.Controls.Add(this.txtPreview);
+            pnlPaper.BackColor = Color.White;
+            pnlPaper.BorderStyle = BorderStyle.FixedSingle;
+            pnlPaper.Controls.Add(txtPreview);
+            pnlPaper.Dock = DockStyle.Fill;
+            pnlPaper.Location = new Point(19, 95);
+            pnlPaper.Name = "pnlPaper";
+            pnlPaper.Padding = new Padding(14);
+            pnlPaper.Size = new Size(582, 531);
+            pnlPaper.TabIndex = 1;
             // 
             // txtPreview
             // 
-            this.txtPreview.BackColor = System.Drawing.Color.White;
-            this.txtPreview.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtPreview.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtPreview.Font = new System.Drawing.Font("Consolas", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtPreview.Multiline = true;
-            this.txtPreview.ReadOnly = true;
-            this.txtPreview.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            txtPreview.BackColor = Color.White;
+            txtPreview.BorderStyle = BorderStyle.None;
+            txtPreview.Dock = DockStyle.Fill;
+            txtPreview.Font = new Font("Consolas", 9.5F);
+            txtPreview.Location = new Point(14, 14);
+            txtPreview.Multiline = true;
+            txtPreview.Name = "txtPreview";
+            txtPreview.ReadOnly = true;
+            txtPreview.ScrollBars = ScrollBars.Vertical;
+            txtPreview.Size = new Size(552, 501);
+            txtPreview.TabIndex = 0;
             // 
             // flpButtons
             // 
-            this.flpButtons.BackColor = System.Drawing.Color.Transparent;
-            this.flpButtons.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flpButtons.Padding = new System.Windows.Forms.Padding(0, 2, 0, 2);
-            this.flpButtons.WrapContents = false;
-            this.flpButtons.Controls.Add(this.btnPrint);
-            this.flpButtons.Controls.Add(this.btnSend);
-            this.flpButtons.Controls.Add(this.btnReplacement);
+            flpButtons.BackColor = Color.Transparent;
+            flpButtons.Controls.Add(btnPrint);
+            flpButtons.Dock = DockStyle.Fill;
+            flpButtons.Location = new Point(19, 632);
+            flpButtons.Name = "flpButtons";
+            flpButtons.Padding = new Padding(0, 2, 0, 2);
+            flpButtons.Size = new Size(582, 50);
+            flpButtons.TabIndex = 2;
+            flpButtons.WrapContents = false;
             // 
             // btnPrint
             // 
-            this.btnPrint.BackColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            this.btnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnPrint.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPrint.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnPrint.ForeColor = System.Drawing.Color.White;
-            this.btnPrint.Margin = new System.Windows.Forms.Padding(0, 4, 10, 4);
-            this.btnPrint.Size = new System.Drawing.Size(200, 40);
-            this.btnPrint.Text = "Print";
-            this.btnPrint.UseVisualStyleBackColor = false;
-            this.btnPrint.FlatAppearance.BorderSize = 0;
-            this.btnPrint.Click += new System.EventHandler(this.btnPrint_Click);
-            // 
-            // btnSend
-            // 
-            this.btnSend.BackColor = System.Drawing.Color.FromArgb(226, 232, 240);
-            this.btnSend.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSend.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnSend.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.btnSend.Margin = new System.Windows.Forms.Padding(0, 4, 10, 4);
-            this.btnSend.Size = new System.Drawing.Size(200, 40);
-            this.btnSend.Text = "Send digital copy";
-            this.btnSend.UseVisualStyleBackColor = false;
-            this.btnSend.FlatAppearance.BorderSize = 0;
-            this.btnSend.Click += new System.EventHandler(this.btnSend_Click);
-            // 
-            // btnReplacement
-            // 
-            this.btnReplacement.BackColor = System.Drawing.Color.FromArgb(226, 232, 240);
-            this.btnReplacement.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReplacement.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReplacement.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnReplacement.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.btnReplacement.Margin = new System.Windows.Forms.Padding(0, 4, 10, 4);
-            this.btnReplacement.Size = new System.Drawing.Size(190, 40);
-            this.btnReplacement.Text = "Replacement (admin)";
-            this.btnReplacement.UseVisualStyleBackColor = false;
-            this.btnReplacement.FlatAppearance.BorderSize = 0;
-            this.btnReplacement.Click += new System.EventHandler(this.btnReplacement_Click);
+            btnPrint.BackColor = Color.FromArgb(17, 24, 39);
+            btnPrint.Cursor = Cursors.Hand;
+            btnPrint.FlatAppearance.BorderSize = 0;
+            btnPrint.FlatStyle = FlatStyle.Flat;
+            btnPrint.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnPrint.ForeColor = Color.White;
+            btnPrint.Location = new Point(0, 6);
+            btnPrint.Margin = new Padding(0, 4, 10, 4);
+            btnPrint.Name = "btnPrint";
+            btnPrint.Size = new Size(582, 40);
+            btnPrint.TabIndex = 0;
+            btnPrint.Text = "Print";
+            btnPrint.UseVisualStyleBackColor = false;
+            btnPrint.Click += btnPrint_Click;
             // 
             // ReceiptForm
             // 
-            this.BackColor = System.Drawing.Color.FromArgb(248, 250, 252);
-            this.ClientSize = new System.Drawing.Size(620, 760);
-            this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MinimumSize = new System.Drawing.Size(560, 640);
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Receipt";
-            this.Controls.Add(this.tlpMain);
-            this.Name = "ReceiptForm";
-            this.flpButtons.ResumeLayout(false);
-            this.flpButtons.PerformLayout();
-            this.pnlPaper.ResumeLayout(false);
-            this.pnlTop.ResumeLayout(false);
-            this.tlpMain.ResumeLayout(false);
-            this.tlpMain.PerformLayout();
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            BackColor = Color.FromArgb(248, 250, 252);
+            ClientSize = new Size(620, 701);
+            Controls.Add(tlpMain);
+            Font = new Font("Segoe UI", 10F);
+            MinimumSize = new Size(560, 640);
+            Name = "ReceiptForm";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Receipt";
+            tlpMain.ResumeLayout(false);
+            pnlTop.ResumeLayout(false);
+            pnlTop.PerformLayout();
+            pnlPaper.ResumeLayout(false);
+            pnlPaper.PerformLayout();
+            flpButtons.ResumeLayout(false);
+            ResumeLayout(false);
         }
 
         #endregion
@@ -218,7 +220,5 @@
         private System.Windows.Forms.TextBox txtPreview;
         private System.Windows.Forms.FlowLayoutPanel flpButtons;
         private System.Windows.Forms.Button btnPrint;
-        private System.Windows.Forms.Button btnSend;
-        private System.Windows.Forms.Button btnReplacement;
     }
 }

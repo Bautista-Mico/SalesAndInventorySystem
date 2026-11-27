@@ -62,7 +62,7 @@
             tlpMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 52F));
             tlpMain.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tlpMain.RowStyles.Add(new RowStyle(SizeType.Absolute, 56F));
-            tlpMain.Size = new Size(1005, 523);
+            tlpMain.Size = new Size(817, 325);
             tlpMain.TabIndex = 0;
             // 
             // flpTop
@@ -74,7 +74,7 @@
             flpTop.Location = new Point(3, 3);
             flpTop.Name = "flpTop";
             flpTop.Padding = new Padding(0, 2, 0, 2);
-            flpTop.Size = new Size(999, 46);
+            flpTop.Size = new Size(811, 46);
             flpTop.TabIndex = 0;
             flpTop.WrapContents = false;
             // 
@@ -146,7 +146,7 @@
             dgvUsers.RowHeadersVisible = false;
             dgvUsers.RowTemplate.Height = 32;
             dgvUsers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvUsers.Size = new Size(999, 409);
+            dgvUsers.Size = new Size(811, 211);
             dgvUsers.TabIndex = 1;
             // 
             // colUsersUsername
@@ -211,10 +211,10 @@
             flpBottom.Controls.Add(btnToggle);
             flpBottom.Controls.Add(btnReset);
             flpBottom.Dock = DockStyle.Fill;
-            flpBottom.Location = new Point(3, 470);
+            flpBottom.Location = new Point(3, 272);
             flpBottom.Name = "flpBottom";
             flpBottom.Padding = new Padding(0, 2, 0, 2);
-            flpBottom.Size = new Size(999, 50);
+            flpBottom.Size = new Size(811, 50);
             flpBottom.TabIndex = 2;
             flpBottom.WrapContents = false;
             // 
@@ -290,7 +290,7 @@
             // 
             Controls.Add(tlpMain);
             Name = "UsersPage";
-            Size = new Size(1045, 563);
+            Size = new Size(857, 365);
             tlpMain.ResumeLayout(false);
             flpTop.ResumeLayout(false);
             flpTop.PerformLayout();

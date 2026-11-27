@@ -123,7 +123,7 @@
             tabs.Location = new Point(20, 20);
             tabs.Name = "tabs";
             tabs.SelectedIndex = 0;
-            tabs.Size = new Size(1005, 523);
+            tabs.Size = new Size(817, 325);
             tabs.TabIndex = 0;
             // 
             // tabUpdate
@@ -133,7 +133,7 @@
             tabUpdate.Location = new Point(4, 26);
             tabUpdate.Name = "tabUpdate";
             tabUpdate.Padding = new Padding(12);
-            tabUpdate.Size = new Size(997, 493);
+            tabUpdate.Size = new Size(809, 295);
             tabUpdate.TabIndex = 0;
             tabUpdate.Text = "Stock update";
             // 
@@ -154,7 +154,7 @@
             tlpUpdate.RowStyles.Add(new RowStyle(SizeType.Absolute, 134F));
             tlpUpdate.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tlpUpdate.RowStyles.Add(new RowStyle(SizeType.Absolute, 64F));
-            tlpUpdate.Size = new Size(973, 469);
+            tlpUpdate.Size = new Size(785, 271);
             tlpUpdate.TabIndex = 0;
             // 
             // pnlPick
@@ -166,7 +166,7 @@
             pnlPick.Location = new Point(3, 3);
             pnlPick.Name = "pnlPick";
             pnlPick.Padding = new Padding(12);
-            pnlPick.Size = new Size(967, 64);
+            pnlPick.Size = new Size(779, 64);
             pnlPick.TabIndex = 0;
             // 
             // flpFind
@@ -179,7 +179,7 @@
             flpFind.Location = new Point(12, 12);
             flpFind.Name = "flpFind";
             flpFind.Padding = new Padding(0, 2, 0, 2);
-            flpFind.Size = new Size(941, 38);
+            flpFind.Size = new Size(753, 38);
             flpFind.TabIndex = 0;
             flpFind.WrapContents = false;
             // 
@@ -233,7 +233,7 @@
             pnlFields.Location = new Point(3, 73);
             pnlFields.Name = "pnlFields";
             pnlFields.Padding = new Padding(12);
-            pnlFields.Size = new Size(967, 128);
+            pnlFields.Size = new Size(779, 128);
             pnlFields.TabIndex = 1;
             // 
             // flpFields
@@ -245,7 +245,7 @@
             flpFields.FlowDirection = FlowDirection.TopDown;
             flpFields.Location = new Point(12, 12);
             flpFields.Name = "flpFields";
-            flpFields.Size = new Size(941, 102);
+            flpFields.Size = new Size(753, 102);
             flpFields.TabIndex = 0;
             flpFields.WrapContents = false;
             // 
@@ -441,7 +441,7 @@
             dgvBatch.RowHeadersVisible = false;
             dgvBatch.RowTemplate.Height = 32;
             dgvBatch.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvBatch.Size = new Size(967, 195);
+            dgvBatch.Size = new Size(779, 1);
             dgvBatch.TabIndex = 2;
             // 
             // colBatchSKU
@@ -518,10 +518,10 @@
             flpPost.Controls.Add(btnRemoveLine);
             flpPost.Controls.Add(btnRecover);
             flpPost.Dock = DockStyle.Fill;
-            flpPost.Location = new Point(3, 408);
+            flpPost.Location = new Point(3, 210);
             flpPost.Name = "flpPost";
             flpPost.Padding = new Padding(0, 2, 0, 2);
-            flpPost.Size = new Size(967, 58);
+            flpPost.Size = new Size(779, 58);
             flpPost.TabIndex = 3;
             flpPost.WrapContents = false;
             // 
@@ -583,7 +583,7 @@
             tabAvailability.Location = new Point(4, 26);
             tabAvailability.Name = "tabAvailability";
             tabAvailability.Padding = new Padding(12);
-            tabAvailability.Size = new Size(997, 493);
+            tabAvailability.Size = new Size(809, 295);
             tabAvailability.TabIndex = 1;
             tabAvailability.Text = "Availability lookup";
             // 
@@ -600,7 +600,7 @@
             tlpAvailability.RowCount = 2;
             tlpAvailability.RowStyles.Add(new RowStyle(SizeType.Absolute, 52F));
             tlpAvailability.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpAvailability.Size = new Size(973, 469);
+            tlpAvailability.Size = new Size(785, 271);
             tlpAvailability.TabIndex = 0;
             // 
             // flpAvailBar
@@ -612,7 +612,7 @@
             flpAvailBar.Location = new Point(3, 3);
             flpAvailBar.Name = "flpAvailBar";
             flpAvailBar.Padding = new Padding(0, 2, 0, 2);
-            flpAvailBar.Size = new Size(967, 46);
+            flpAvailBar.Size = new Size(779, 46);
             flpAvailBar.TabIndex = 0;
             flpAvailBar.WrapContents = false;
             // 
@@ -684,7 +684,7 @@
             dgvAvailability.RowHeadersVisible = false;
             dgvAvailability.RowTemplate.Height = 32;
             dgvAvailability.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvAvailability.Size = new Size(967, 411);
+            dgvAvailability.Size = new Size(779, 213);
             dgvAvailability.TabIndex = 1;
             // 
             // colAvailabilitySKU
@@ -753,7 +753,7 @@
             tabLedger.Location = new Point(4, 26);
             tabLedger.Name = "tabLedger";
             tabLedger.Padding = new Padding(12);
-            tabLedger.Size = new Size(997, 493);
+            tabLedger.Size = new Size(809, 295);
             tabLedger.TabIndex = 2;
             tabLedger.Text = "Ledger & variance";
             // 
@@ -770,7 +770,7 @@
             tlpLedger.RowCount = 2;
             tlpLedger.RowStyles.Add(new RowStyle(SizeType.Absolute, 52F));
             tlpLedger.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tlpLedger.Size = new Size(973, 469);
+            tlpLedger.Size = new Size(785, 271);
             tlpLedger.TabIndex = 0;
             // 
             // flpLedgerBar
@@ -787,7 +787,7 @@
             flpLedgerBar.Location = new Point(3, 3);
             flpLedgerBar.Name = "flpLedgerBar";
             flpLedgerBar.Padding = new Padding(0, 2, 0, 2);
-            flpLedgerBar.Size = new Size(967, 46);
+            flpLedgerBar.Size = new Size(779, 46);
             flpLedgerBar.TabIndex = 0;
             flpLedgerBar.WrapContents = false;
             // 
@@ -911,14 +911,14 @@
             dgvLedger.RowHeadersVisible = false;
             dgvLedger.RowTemplate.Height = 32;
             dgvLedger.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvLedger.Size = new Size(967, 411);
+            dgvLedger.Size = new Size(779, 213);
             dgvLedger.TabIndex = 1;
             // 
             // StockPage
             // 
             Controls.Add(tabs);
             Name = "StockPage";
-            Size = new Size(1045, 563);
+            Size = new Size(857, 365);
             tabs.ResumeLayout(false);
             tabUpdate.ResumeLayout(false);
             tlpUpdate.ResumeLayout(false);

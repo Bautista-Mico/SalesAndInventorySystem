@@ -1,56 +1,35 @@
-CREATE OR ALTER PROCEDURE dbo.spProductSave
-    @ProductId INT = NULL, @SKU NVARCHAR(40) = NULL, @Name NVARCHAR(200),
-    @Description NVARCHAR(500) = NULL, @Specification NVARCHAR(300) = NULL,
-    @CategoryId INT, @SupplierId INT = NULL, @UnitOfMeasure NVARCHAR(20),
-    @UnitCost DECIMAL(18,2), @SellingPrice DECIMAL(18,2), @TaxGroup NVARCHAR(20), @DiscountEligible BIT,
-    @ImagePath NVARCHAR(300) = NULL, @StorageLocation NVARCHAR(100) = NULL,
-    @QtyOnHand INT = 0, @ReorderPoint INT, @UserId INT
+CREATE OR ALTER PROCEDURE dbo.spProductDelete
+    @ProductId INT, @UserId INT, @WriteOffStock BIT = 0, @HardDelete BIT = 0
 AS
 BEGIN
     SET NOCOUNT ON; SET XACT_ABORT ON;
+    DECLARE @Qty INT, @SKU NVARCHAR(40), @Loc NVARCHAR(100);
+    SELECT @Qty = QtyOnHand, @SKU = SKU, @Loc = StorageLocation FROM dbo.Products WHERE ProductId = @ProductId;
+    IF @SKU IS NULL THROW 50020, 'Product not found.', 1;
 
-    IF ISNULL(LTRIM(RTRIM(@Name)), '') = '' THROW 50010, 'Product name is required.', 1;
-    IF @SellingPrice IS NULL OR @SellingPrice < 0 THROW 50011, 'Retail selling price must be numeric and cannot be lower than 0.00.', 1;
-    IF @UnitCost < 0 THROW 50012, 'Unit cost cannot be negative.', 1;
-    IF @ReorderPoint IS NULL OR @ReorderPoint <= 0 THROW 50013, 'Reorder point must be a number greater than zero.', 1;
-    IF @QtyOnHand < 0 THROW 50014, 'Inventory quantity cannot be negative.', 1;
-
-    IF ISNULL(LTRIM(RTRIM(@SKU)), '') = ''
+    BEGIN TRAN;
+    IF @Qty > 0
     BEGIN
-        DECLARE @n INT;
-        SET @n = NEXT VALUE FOR dbo.SkuSeq;
-        SET @SKU = 'SKU-' + RIGHT('000000' + CAST(@n AS VARCHAR(10)), 6);
+        IF @WriteOffStock = 0
+            THROW 50021, 'This product still has stock. Write off or sell the stock first.', 1;
+        INSERT dbo.StockMovements (ProductId, ActionType, Quantity, QtyBefore, QtyAfter, Location, Reference, Reason, UserId)
+        VALUES (@ProductId, 'Discrepancy Adjustment', -@Qty, @Qty, 0, @Loc, @SKU, 'Written off on product removal', @UserId);
+        UPDATE dbo.Products SET QtyOnHand = 0 WHERE ProductId = @ProductId;
     END
 
-    IF EXISTS (SELECT 1 FROM dbo.Products WHERE SKU = @SKU AND (@ProductId IS NULL OR @ProductId = 0 OR ProductId <> @ProductId))
-        THROW 50015, 'That SKU already exists. Product IDs / SKUs must be unique.', 1;
-
-    IF @ProductId IS NULL OR @ProductId = 0
+    IF @HardDelete = 1 AND NOT EXISTS (SELECT 1 FROM dbo.SaleItems WHERE ProductId = @ProductId)
     BEGIN
-        BEGIN TRAN;
-        INSERT dbo.Products (SKU, Name, Description, Specification, CategoryId, SupplierId, UnitOfMeasure, UnitCost, SellingPrice,
-                             TaxGroup, DiscountEligible, ImagePath, StorageLocation, QtyOnHand, ReorderPoint)
-        VALUES (@SKU, @Name, @Description, @Specification, @CategoryId, @SupplierId, @UnitOfMeasure, @UnitCost, @SellingPrice,
-                @TaxGroup, @DiscountEligible, @ImagePath, @StorageLocation, @QtyOnHand, @ReorderPoint);
-        SET @ProductId = SCOPE_IDENTITY();
-
-        IF @QtyOnHand > 0
-            INSERT dbo.StockMovements (ProductId, ActionType, Quantity, QtyBefore, QtyAfter, Location, Reference, Reason, UserId)
-            VALUES (@ProductId, 'Initial Stock', @QtyOnHand, 0, @QtyOnHand, @StorageLocation, @SKU, 'Initial stock on item creation', @UserId);
-        COMMIT;
+        DELETE dbo.StockMovements WHERE ProductId = @ProductId;
+        DELETE dbo.Products WHERE ProductId = @ProductId;
+        INSERT dbo.AuditLogs (UserId, Action, Details) VALUES (@UserId, 'ProductDeleted', @SKU);
+        SELECT 'Deleted' AS Result;
     END
     ELSE
     BEGIN
-        UPDATE dbo.Products
-           SET SKU = @SKU, Name = @Name, Description = @Description, Specification = @Specification,
-               CategoryId = @CategoryId, SupplierId = @SupplierId, UnitOfMeasure = @UnitOfMeasure,
-               UnitCost = @UnitCost, SellingPrice = @SellingPrice, TaxGroup = @TaxGroup,
-               DiscountEligible = @DiscountEligible, ImagePath = @ImagePath, StorageLocation = @StorageLocation,
-               ReorderPoint = @ReorderPoint, UpdatedAt = SYSDATETIME()
-         WHERE ProductId = @ProductId;     -- quantity is only changed through spStockAdjust
+        UPDATE dbo.Products SET IsActive = 0, UpdatedAt = SYSDATETIME() WHERE ProductId = @ProductId;
+        INSERT dbo.AuditLogs (UserId, Action, Details) VALUES (@UserId, 'ProductDeactivated', @SKU);
+        SELECT 'Deactivated' AS Result;
     END
-
-    INSERT dbo.AuditLogs (UserId, Action, Details) VALUES (@UserId, 'ProductSaved', @SKU + ' / ' + @Name);
-    SELECT @ProductId AS ProductId;
+    COMMIT;
 END
 GO

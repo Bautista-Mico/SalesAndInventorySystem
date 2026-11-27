@@ -21,8 +21,8 @@
         /// <summary>Required method for Designer support - do not modify the contents of this method with the code editor.</summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             pnlTop = new Panel();
-            lblTitle = new Label();
             lblSubtitle = new Label();
             txtUser = new TextBox();
             txtPassword = new TextBox();
@@ -30,6 +30,9 @@
             btnLogin = new Button();
             lblError = new Label();
             lblNotice = new Label();
+            pictureBox1 = new PictureBox();
+            label1 = new Label();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // pnlTop
@@ -41,23 +44,13 @@
             pnlTop.Size = new Size(480, 5);
             pnlTop.TabIndex = 0;
             // 
-            // lblTitle
-            // 
-            lblTitle.Font = new Font("Segoe UI", 20F, FontStyle.Bold);
-            lblTitle.ForeColor = Color.FromArgb(17, 24, 39);
-            lblTitle.Location = new Point(110, 145);
-            lblTitle.Name = "lblTitle";
-            lblTitle.Size = new Size(279, 40);
-            lblTitle.TabIndex = 1;
-            lblTitle.Text = "Sales & Inventory";
-            // 
             // lblSubtitle
             // 
             lblSubtitle.Font = new Font("Segoe UI", 10F);
             lblSubtitle.ForeColor = Color.FromArgb(100, 116, 139);
-            lblSubtitle.Location = new Point(129, 196);
+            lblSubtitle.Location = new Point(129, 204);
             lblSubtitle.Name = "lblSubtitle";
-            lblSubtitle.Size = new Size(159, 28);
+            lblSubtitle.Size = new Size(218, 28);
             lblSubtitle.TabIndex = 2;
             lblSubtitle.Text = "Sign in to your account";
             // 
@@ -129,13 +122,34 @@
             lblNotice.Size = new Size(340, 40);
             lblNotice.TabIndex = 8;
             // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(198, 49);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(90, 64);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Black", 14F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(105, 154);
+            label1.Name = "label1";
+            label1.Size = new Size(200, 25);
+            label1.TabIndex = 10;
+            label1.Text = "Sales And Inventory";
+            // 
             // LoginForm
             // 
             AcceptButton = btnLogin;
             BackColor = Color.FromArgb(248, 250, 252);
             ClientSize = new Size(480, 600);
+            Controls.Add(label1);
+            Controls.Add(pictureBox1);
             Controls.Add(pnlTop);
-            Controls.Add(lblTitle);
             Controls.Add(lblSubtitle);
             Controls.Add(txtUser);
             Controls.Add(txtPassword);
@@ -149,6 +163,7 @@
             Name = "LoginForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Sales & Inventory - Sign in";
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -157,7 +172,6 @@
 
         private System.Windows.Forms.Panel pnlTop;
         private LogoBadge logo;
-        private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Label lblSubtitle;
         private System.Windows.Forms.TextBox txtUser;
         private System.Windows.Forms.TextBox txtPassword;
@@ -165,5 +179,7 @@
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.Label lblNotice;
+        private PictureBox pictureBox1;
+        private Label label1;
     }
 }
