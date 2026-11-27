@@ -1,78 +1,36 @@
-﻿using System.Security.Cryptography;
-using BusinessLogic.Repository;
-using Model;
+﻿using SalesInventory.BusinessLogic.Repository;
+using SalesInventory.Model;
+using System.Text.RegularExpressions;
 
-namespace BusinessLogic.Controller;
+namespace SalesInventory.BusinessLogic.Controller;
 
 public class UserController
 {
-    private static readonly string[] ValidRoles = { "Admin", "Manager", "Staff" };
-    private readonly UserRepository _repo;
+    public List<User> List(string search) => UserRepository.GetAll(search);
 
-    public UserController(UserRepository repo) => _repo = repo;
-
-    public List<User> GetAll() => _repo.Search("");
-
-    public List<User> Search(string keyword) => _repo.Search(keyword.Trim());
-
-    public int Create(User user, string password)
+    public int Save(User u, string newPassword)
     {
-        Validate(user);
-        if (string.IsNullOrWhiteSpace(password) || password.Length < 6)
-            throw new ArgumentException("Password must be at least 6 characters.");
-        return _repo.Add(user, HashPassword(password));
+        if (!Permissions.CanManageUsers) throw new BusinessRuleException("Only administrators can manage users.");
+        if (string.IsNullOrWhiteSpace(u.Username)) throw new BusinessRuleException("Username is required.");
+        if (string.IsNullOrWhiteSpace(u.FullName)) throw new BusinessRuleException("Full name is required.");
+        if (!Regex.IsMatch(u.Email ?? "", @"^[^@\s]+@[^@\s]+\.[^@\s]+$")) throw new BusinessRuleException("Enter a valid email address.");
+        if (!Roles.All.Contains(u.Role)) throw new BusinessRuleException("Choose a role.");
+        if (u.UserId == 0 && string.IsNullOrEmpty(newPassword)) throw new BusinessRuleException("A password is required for a new user.");
+        if (!string.IsNullOrEmpty(newPassword) && newPassword.Length < 8) throw new BusinessRuleException("Password must be at least 8 characters.");
+        return UserRepository.Save(u, string.IsNullOrEmpty(newPassword) ? null : PasswordHasher.Hash(newPassword));
     }
 
-    public void Update(User user, string? newPassword)
+    public void ResetPassword(User u, string newPassword)
     {
-        Validate(user);
-        string? hash = null;
-        if (!string.IsNullOrWhiteSpace(newPassword))
-        {
-            if (newPassword.Length < 6)
-                throw new ArgumentException("Password must be at least 6 characters.");
-            hash = HashPassword(newPassword);
-        }
-        if (!_repo.Update(user, hash))
-            throw new InvalidOperationException("User not found.");
+        if (!Permissions.CanManageUsers) throw new BusinessRuleException("Only administrators can manage users.");
+        if (string.IsNullOrEmpty(newPassword) || newPassword.Length < 8) throw new BusinessRuleException("Password must be at least 8 characters.");
+        UserRepository.SetPassword(u.UserId, PasswordHasher.Hash(newPassword));
     }
 
-    // Only a System Administrator can unlock a locked account.
-    public void Unlock(int userId, User actingUser)
+    public void SetActive(User u, bool active)
     {
-        if (actingUser.Role != "Admin")
-            throw new UnauthorizedAccessException("Only a System Administrator can unlock accounts.");
-        if (!_repo.Unlock(userId))
-            throw new InvalidOperationException("User not found.");
-    }
-
-    public void Delete(int userId)
-    {
-        if (!_repo.Delete(userId))
-            throw new InvalidOperationException("User not found.");
-    }
-
-    private static void Validate(User u)
-    {
-        if (string.IsNullOrWhiteSpace(u.Username)) throw new ArgumentException("Username is required.");
-        if (string.IsNullOrWhiteSpace(u.FullName)) throw new ArgumentException("Full name is required.");
-        if (!ValidRoles.Contains(u.Role)) throw new ArgumentException("Invalid role.");
-    }
-
-    // PBKDF2, stored as "salt:hash" (Base64)
-    public static string HashPassword(string password)
-    {
-        byte[] salt = RandomNumberGenerator.GetBytes(16);
-        byte[] hash = Rfc2898DeriveBytes.Pbkdf2(password, salt, 100_000, HashAlgorithmName.SHA256, 32);
-        return $"{Convert.ToBase64String(salt)}:{Convert.ToBase64String(hash)}";
-    }
-
-    public static bool VerifyPassword(string password, string stored)
-    {
-        var parts = stored.Split(':');
-        byte[] salt = Convert.FromBase64String(parts[0]);
-        byte[] expected = Convert.FromBase64String(parts[1]);
-        byte[] actual = Rfc2898DeriveBytes.Pbkdf2(password, salt, 100_000, HashAlgorithmName.SHA256, 32);
-        return CryptographicOperations.FixedTimeEquals(actual, expected);
+        if (u.UserId == Session.Current.UserId && !active) throw new BusinessRuleException("You cannot disable your own account.");
+        u.IsActive = active;
+        UserRepository.Save(u, null);
     }
 }

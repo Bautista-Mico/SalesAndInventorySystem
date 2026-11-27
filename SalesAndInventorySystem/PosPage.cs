@@ -1,5 +1,3 @@
-﻿using UI;
-
 namespace SalesInventory.UI;
 
 /// <summary>Point of Sale: cart on the left, customer / totals / pay on the right (see the Sales Processing sketch).</summary>

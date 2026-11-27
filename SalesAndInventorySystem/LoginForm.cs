@@ -28,4 +28,9 @@ public partial class LoginForm : Form
         catch (BusinessRuleException ex) { lblError.Text = ex.Message; txtPassword.Clear(); txtPassword.Focus(); }
         catch (Exception ex) { lblError.Text = "Could not reach the database: " + ex.Message; }
     }
+
+    private void lblTitle_Click(object sender, EventArgs e)
+    {
+
+    }
 }

@@ -1,4 +1,4 @@
-﻿using Model;
+﻿using SalesInventory.Model;
 using System.Security.Cryptography;
 
 namespace SalesInventory.BusinessLogic.Controller;
