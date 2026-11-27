@@ -12,9 +12,11 @@ public static class PricingService
 
     public static readonly Dictionary<string, decimal> DiscountCodes = new(StringComparer.OrdinalIgnoreCase)
     {
+        ["SENIOR10"] = 20m,
         ["STUDENT10"] = 10m,
         ["STAFF15"] = 15m,
         ["PROMO5"] = 5m
+
     };
 
     public static decimal PercentFor(string customerType, string code)
@@ -24,7 +26,7 @@ public static class PricingService
             if (DiscountCodes.TryGetValue(code.Trim(), out var pct)) return pct;
             throw new BusinessRuleException("That discount code is not valid.");
         }
-        return customerType switch { "Student" => 10m, "Staff" => 15m, _ => 0m };
+        return customerType switch {"SENIOR10" => 20m, "Student" => 10m, "Staff" => 15m, _ => 0m };
     }
 
     private static decimal R(decimal v) => Math.Round(v, 2, MidpointRounding.AwayFromZero);
