@@ -29,9 +29,6 @@
 		<Content Include="..\DB\**\*.sql" Link="DB\%(RecursiveDir)%(Filename)%(Extension)">
 			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 		</Content>
-		<Content Include="dbconfig.json">
-			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-		</Content>
 	</ItemGroup>
 
 </Project>
