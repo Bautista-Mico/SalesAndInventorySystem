@@ -6,21 +6,4 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
-  <ItemGroup>
-    <None Remove="dbconfig.json" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Content Include="dbconfig.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="PostScript\" />
-    <Folder Include="StoredProc\" />
-    <Folder Include="View\" />
-    <Folder Include="Table\" />
-  </ItemGroup>
-
 </Project>

@@ -26,14 +26,3 @@ SELECT p.ProductId, 'Initial Stock', p.QtyOnHand, 0, p.QtyOnHand, p.StorageLocat
 FROM dbo.Products p
 WHERE p.QtyOnHand > 0 AND NOT EXISTS (SELECT 1 FROM dbo.StockMovements m WHERE m.ProductId = p.ProductId);
 GO
-
-BEGIN TRAN;
-EXEC sp_MSforeachtable 'ALTER TABLE ? NOCHECK CONSTRAINT ALL';
-DELETE dbo.Receipts;
-DELETE dbo.Payments;
-DELETE dbo.SaleItems;
-DELETE dbo.Sales;
-DELETE dbo.StockMovements;
-DELETE dbo.Products;
-EXEC sp_MSforeachtable 'ALTER TABLE ? WITH CHECK CHECK CONSTRAINT ALL';
-COMMIT;
