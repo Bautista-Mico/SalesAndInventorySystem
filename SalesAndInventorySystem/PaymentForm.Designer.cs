@@ -21,197 +21,206 @@
         /// <summary>Required method for Designer support - do not modify the contents of this method with the code editor.</summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.pnlTop = new System.Windows.Forms.Panel();
-            this.lblPaymentTitle = new System.Windows.Forms.Label();
-            this.lblSummary = new System.Windows.Forms.Label();
-            this.lblDue = new System.Windows.Forms.Label();
-            this.pnlMid = new System.Windows.Forms.Panel();
-            this.btnCash = new System.Windows.Forms.Button();
-            this.btnCard = new System.Windows.Forms.Button();
-            this.btnWallet = new System.Windows.Forms.Button();
-            this.lblCaption = new System.Windows.Forms.Label();
-            this.txtInput = new System.Windows.Forms.TextBox();
-            this.btnAux = new System.Windows.Forms.Button();
-            this.lblInfo = new System.Windows.Forms.Label();
-            this.btnFinalize = new System.Windows.Forms.Button();
-            this.pnlTop.SuspendLayout();
-            this.pnlMid.SuspendLayout();
-            this.SuspendLayout();
+            pnlTop = new Panel();
+            lblPaymentTitle = new Label();
+            lblSummary = new Label();
+            lblDue = new Label();
+            pnlMid = new Panel();
+            btnCash = new Button();
+            btnCard = new Button();
+            lblCaption = new Label();
+            txtInput = new TextBox();
+            btnAux = new Button();
+            lblInfo = new Label();
+            btnFinalize = new Button();
+            pnlTop.SuspendLayout();
+            pnlMid.SuspendLayout();
+            SuspendLayout();
             // 
             // pnlTop
             // 
-            this.pnlTop.BackColor = System.Drawing.Color.White;
-            this.pnlTop.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlTop.Location = new System.Drawing.Point(20, 20);
-            this.pnlTop.Size = new System.Drawing.Size(500, 92);
-            this.pnlTop.Controls.Add(this.lblPaymentTitle);
-            this.pnlTop.Controls.Add(this.lblSummary);
-            this.pnlTop.Controls.Add(this.lblDue);
+            pnlTop.BackColor = Color.White;
+            pnlTop.BorderStyle = BorderStyle.FixedSingle;
+            pnlTop.Controls.Add(lblPaymentTitle);
+            pnlTop.Controls.Add(lblSummary);
+            pnlTop.Controls.Add(lblDue);
+            pnlTop.Location = new Point(20, 20);
+            pnlTop.Name = "pnlTop";
+            pnlTop.Size = new Size(500, 92);
+            pnlTop.TabIndex = 0;
             // 
             // lblPaymentTitle
             // 
-            this.lblPaymentTitle.AutoSize = true;
-            this.lblPaymentTitle.BackColor = System.Drawing.Color.Transparent;
-            this.lblPaymentTitle.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPaymentTitle.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.lblPaymentTitle.Margin = new System.Windows.Forms.Padding(0, 8, 8, 0);
-            this.lblPaymentTitle.Text = "Payment";
-            this.lblPaymentTitle.Location = new System.Drawing.Point(14, 12);
+            lblPaymentTitle.AutoSize = true;
+            lblPaymentTitle.BackColor = Color.Transparent;
+            lblPaymentTitle.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblPaymentTitle.ForeColor = Color.FromArgb(30, 41, 59);
+            lblPaymentTitle.Location = new Point(14, 12);
+            lblPaymentTitle.Margin = new Padding(0, 8, 8, 0);
+            lblPaymentTitle.Name = "lblPaymentTitle";
+            lblPaymentTitle.Size = new Size(87, 25);
+            lblPaymentTitle.TabIndex = 0;
+            lblPaymentTitle.Text = "Payment";
             // 
             // lblSummary
             // 
-            this.lblSummary.AutoSize = true;
-            this.lblSummary.BackColor = System.Drawing.Color.Transparent;
-            this.lblSummary.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblSummary.ForeColor = System.Drawing.Color.FromArgb(100, 116, 139);
-            this.lblSummary.Margin = new System.Windows.Forms.Padding(0, 8, 8, 0);
-            this.lblSummary.Text = "0 item(s)  -  Walk-in";
-            this.lblSummary.Location = new System.Drawing.Point(14, 48);
+            lblSummary.AutoSize = true;
+            lblSummary.BackColor = Color.Transparent;
+            lblSummary.Font = new Font("Segoe UI", 10F);
+            lblSummary.ForeColor = Color.FromArgb(100, 116, 139);
+            lblSummary.Location = new Point(14, 48);
+            lblSummary.Margin = new Padding(0, 8, 8, 0);
+            lblSummary.Name = "lblSummary";
+            lblSummary.Size = new Size(130, 19);
+            lblSummary.TabIndex = 1;
+            lblSummary.Text = "0 item(s)  -  Walk-in";
             // 
             // lblDue
             // 
-            this.lblDue.BackColor = System.Drawing.Color.FromArgb(71, 85, 105);
-            this.lblDue.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDue.ForeColor = System.Drawing.Color.White;
-            this.lblDue.Location = new System.Drawing.Point(270, 12);
-            this.lblDue.Size = new System.Drawing.Size(214, 66);
-            this.lblDue.Text = "Total due";
+            lblDue.BackColor = Color.FromArgb(71, 85, 105);
+            lblDue.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblDue.ForeColor = Color.White;
+            lblDue.Location = new Point(270, 12);
+            lblDue.Name = "lblDue";
+            lblDue.Size = new Size(214, 66);
+            lblDue.TabIndex = 2;
+            lblDue.Text = "Total due";
             // 
             // pnlMid
             // 
-            this.pnlMid.BackColor = System.Drawing.Color.White;
-            this.pnlMid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlMid.Location = new System.Drawing.Point(20, 128);
-            this.pnlMid.Size = new System.Drawing.Size(500, 270);
-            this.pnlMid.Controls.Add(this.btnCash);
-            this.pnlMid.Controls.Add(this.btnCard);
-            this.pnlMid.Controls.Add(this.btnWallet);
-            this.pnlMid.Controls.Add(this.lblCaption);
-            this.pnlMid.Controls.Add(this.txtInput);
-            this.pnlMid.Controls.Add(this.btnAux);
-            this.pnlMid.Controls.Add(this.lblInfo);
+            pnlMid.BackColor = Color.White;
+            pnlMid.BorderStyle = BorderStyle.FixedSingle;
+            pnlMid.Controls.Add(btnCash);
+            pnlMid.Controls.Add(btnCard);
+            pnlMid.Controls.Add(lblCaption);
+            pnlMid.Controls.Add(txtInput);
+            pnlMid.Controls.Add(btnAux);
+            pnlMid.Controls.Add(lblInfo);
+            pnlMid.Location = new Point(20, 128);
+            pnlMid.Name = "pnlMid";
+            pnlMid.Size = new Size(500, 270);
+            pnlMid.TabIndex = 1;
             // 
             // btnCash
             // 
-            this.btnCash.BackColor = System.Drawing.Color.FromArgb(226, 232, 240);
-            this.btnCash.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCash.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCash.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnCash.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.btnCash.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            this.btnCash.Size = new System.Drawing.Size(150, 52);
-            this.btnCash.Text = "Cash";
-            this.btnCash.UseVisualStyleBackColor = false;
-            this.btnCash.FlatAppearance.BorderSize = 0;
-            this.btnCash.Location = new System.Drawing.Point(14, 14);
-            this.btnCash.Click += new System.EventHandler(this.btnCash_Click);
+            btnCash.BackColor = Color.FromArgb(226, 232, 240);
+            btnCash.Cursor = Cursors.Hand;
+            btnCash.FlatAppearance.BorderSize = 0;
+            btnCash.FlatStyle = FlatStyle.Flat;
+            btnCash.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnCash.ForeColor = Color.FromArgb(30, 41, 59);
+            btnCash.Location = new Point(14, 14);
+            btnCash.Margin = new Padding(0);
+            btnCash.Name = "btnCash";
+            btnCash.Size = new Size(221, 52);
+            btnCash.TabIndex = 0;
+            btnCash.Text = "Cash";
+            btnCash.UseVisualStyleBackColor = false;
+            btnCash.Click += btnCash_Click;
             // 
             // btnCard
             // 
-            this.btnCard.BackColor = System.Drawing.Color.FromArgb(226, 232, 240);
-            this.btnCard.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCard.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnCard.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.btnCard.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            this.btnCard.Size = new System.Drawing.Size(150, 52);
-            this.btnCard.Text = "Card";
-            this.btnCard.UseVisualStyleBackColor = false;
-            this.btnCard.FlatAppearance.BorderSize = 0;
-            this.btnCard.Location = new System.Drawing.Point(174, 14);
-            this.btnCard.Click += new System.EventHandler(this.btnCard_Click);
-            // 
-            // btnWallet
-            // 
-            this.btnWallet.BackColor = System.Drawing.Color.FromArgb(226, 232, 240);
-            this.btnWallet.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnWallet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnWallet.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnWallet.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.btnWallet.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            this.btnWallet.Size = new System.Drawing.Size(150, 52);
-            this.btnWallet.Text = "Mobile Wallet";
-            this.btnWallet.UseVisualStyleBackColor = false;
-            this.btnWallet.FlatAppearance.BorderSize = 0;
-            this.btnWallet.Location = new System.Drawing.Point(334, 14);
-            this.btnWallet.Click += new System.EventHandler(this.btnWallet_Click);
+            btnCard.BackColor = Color.FromArgb(226, 232, 240);
+            btnCard.Cursor = Cursors.Hand;
+            btnCard.FlatAppearance.BorderSize = 0;
+            btnCard.FlatStyle = FlatStyle.Flat;
+            btnCard.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnCard.ForeColor = Color.FromArgb(30, 41, 59);
+            btnCard.Location = new Point(256, 14);
+            btnCard.Margin = new Padding(0);
+            btnCard.Name = "btnCard";
+            btnCard.Size = new Size(228, 52);
+            btnCard.TabIndex = 1;
+            btnCard.Text = "Card";
+            btnCard.UseVisualStyleBackColor = false;
+            btnCard.Click += btnCard_Click;
             // 
             // lblCaption
             // 
-            this.lblCaption.AutoSize = true;
-            this.lblCaption.BackColor = System.Drawing.Color.Transparent;
-            this.lblCaption.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblCaption.ForeColor = System.Drawing.Color.FromArgb(71, 85, 105);
-            this.lblCaption.Margin = new System.Windows.Forms.Padding(0, 8, 8, 0);
-            this.lblCaption.Text = "Cash tendered";
-            this.lblCaption.Location = new System.Drawing.Point(14, 84);
+            lblCaption.AutoSize = true;
+            lblCaption.BackColor = Color.Transparent;
+            lblCaption.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblCaption.ForeColor = Color.FromArgb(71, 85, 105);
+            lblCaption.Location = new Point(14, 84);
+            lblCaption.Margin = new Padding(0, 8, 8, 0);
+            lblCaption.Name = "lblCaption";
+            lblCaption.Size = new Size(105, 19);
+            lblCaption.TabIndex = 3;
+            lblCaption.Text = "Cash tendered";
             // 
             // txtInput
             // 
-            this.txtInput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtInput.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.txtInput.Margin = new System.Windows.Forms.Padding(0, 6, 10, 6);
-            this.txtInput.Size = new System.Drawing.Size(300, 25);
-            this.txtInput.Location = new System.Drawing.Point(14, 112);
+            txtInput.BorderStyle = BorderStyle.FixedSingle;
+            txtInput.Font = new Font("Segoe UI", 10F);
+            txtInput.Location = new Point(14, 112);
+            txtInput.Margin = new Padding(0, 6, 10, 6);
+            txtInput.Name = "txtInput";
+            txtInput.Size = new Size(300, 25);
+            txtInput.TabIndex = 4;
             // 
             // btnAux
             // 
-            this.btnAux.BackColor = System.Drawing.Color.FromArgb(226, 232, 240);
-            this.btnAux.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAux.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAux.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnAux.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.btnAux.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            this.btnAux.Size = new System.Drawing.Size(160, 40);
-            this.btnAux.Text = "Exact amount";
-            this.btnAux.UseVisualStyleBackColor = false;
-            this.btnAux.FlatAppearance.BorderSize = 0;
-            this.btnAux.Location = new System.Drawing.Point(324, 108);
-            this.btnAux.Click += new System.EventHandler(this.btnAux_Click);
+            btnAux.BackColor = Color.FromArgb(226, 232, 240);
+            btnAux.Cursor = Cursors.Hand;
+            btnAux.FlatAppearance.BorderSize = 0;
+            btnAux.FlatStyle = FlatStyle.Flat;
+            btnAux.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnAux.ForeColor = Color.FromArgb(30, 41, 59);
+            btnAux.Location = new Point(324, 108);
+            btnAux.Margin = new Padding(0);
+            btnAux.Name = "btnAux";
+            btnAux.Size = new Size(160, 40);
+            btnAux.TabIndex = 5;
+            btnAux.Text = "Exact amount";
+            btnAux.UseVisualStyleBackColor = false;
+            btnAux.Click += btnAux_Click;
             // 
             // lblInfo
             // 
-            this.lblInfo.AutoSize = false;
-            this.lblInfo.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblInfo.ForeColor = System.Drawing.Color.FromArgb(30, 41, 59);
-            this.lblInfo.Location = new System.Drawing.Point(14, 164);
-            this.lblInfo.Size = new System.Drawing.Size(470, 56);
+            lblInfo.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            lblInfo.ForeColor = Color.FromArgb(30, 41, 59);
+            lblInfo.Location = new Point(14, 164);
+            lblInfo.Name = "lblInfo";
+            lblInfo.Size = new Size(470, 56);
+            lblInfo.TabIndex = 6;
             // 
             // btnFinalize
             // 
-            this.btnFinalize.BackColor = System.Drawing.Color.FromArgb(17, 24, 39);
-            this.btnFinalize.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnFinalize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFinalize.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btnFinalize.ForeColor = System.Drawing.Color.White;
-            this.btnFinalize.Margin = new System.Windows.Forms.Padding(0, 0, 0, 0);
-            this.btnFinalize.Size = new System.Drawing.Size(500, 62);
-            this.btnFinalize.Text = "FINALIZE PAYMENT";
-            this.btnFinalize.UseVisualStyleBackColor = false;
-            this.btnFinalize.FlatAppearance.BorderSize = 0;
-            this.btnFinalize.Location = new System.Drawing.Point(20, 418);
-            this.btnFinalize.Click += new System.EventHandler(this.btnFinalize_Click);
+            btnFinalize.BackColor = Color.FromArgb(17, 24, 39);
+            btnFinalize.Cursor = Cursors.Hand;
+            btnFinalize.FlatAppearance.BorderSize = 0;
+            btnFinalize.FlatStyle = FlatStyle.Flat;
+            btnFinalize.Font = new Font("Segoe UI", 13F, FontStyle.Bold);
+            btnFinalize.ForeColor = Color.White;
+            btnFinalize.Location = new Point(20, 418);
+            btnFinalize.Margin = new Padding(0);
+            btnFinalize.Name = "btnFinalize";
+            btnFinalize.Size = new Size(500, 62);
+            btnFinalize.TabIndex = 2;
+            btnFinalize.Text = "FINALIZE PAYMENT";
+            btnFinalize.UseVisualStyleBackColor = false;
+            btnFinalize.Click += btnFinalize_Click;
             // 
             // PaymentForm
             // 
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.AcceptButton = this.btnFinalize;
-            this.BackColor = System.Drawing.Color.FromArgb(248, 250, 252);
-            this.ClientSize = new System.Drawing.Size(540, 520);
-            this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Text = "Payment";
-            this.Controls.Add(this.pnlTop);
-            this.Controls.Add(this.pnlMid);
-            this.Controls.Add(this.btnFinalize);
-            this.Name = "PaymentForm";
-            this.pnlMid.ResumeLayout(false);
-            this.pnlTop.ResumeLayout(false);
-            this.ResumeLayout(false);
-            this.PerformLayout();
+            AcceptButton = btnFinalize;
+            BackColor = Color.FromArgb(248, 250, 252);
+            ClientSize = new Size(540, 520);
+            Controls.Add(pnlTop);
+            Controls.Add(pnlMid);
+            Controls.Add(btnFinalize);
+            Font = new Font("Segoe UI", 10F);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            MinimizeBox = false;
+            Name = "PaymentForm";
+            StartPosition = FormStartPosition.CenterParent;
+            Text = "Payment";
+            pnlTop.ResumeLayout(false);
+            pnlTop.PerformLayout();
+            pnlMid.ResumeLayout(false);
+            pnlMid.PerformLayout();
+            ResumeLayout(false);
         }
 
         #endregion
